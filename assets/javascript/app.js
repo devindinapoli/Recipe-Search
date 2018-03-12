@@ -16,7 +16,7 @@
     var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey;
 
     $.ajax({
-        url: queryUrl + search,
+        url: queryUrl,
         method: "GET"
     }).then(function(response) {
         console.log(response);
@@ -29,16 +29,16 @@
       var ingredients = [];
       var exclude = [];
 
-      if($("#ing-1").val() != null) {
-        var ingredients = $("#ing-1").val();
+      if($("#ing-1").val() != undefined) {
+        ingredients = $("#ing-1").val();
         search += ingredients;
       }
-      if($("#search-dish").val() != null) {
-        var dishName = $("#dish-name").val();
+      if($("#search-dish").val() != undefined) {
+        dishName = $("#dish-name").val();
         search += dishName
       }
-      if($("#exclude").val() != null) {
-        var  exclude = $("#exclude").val();
+      if($("#exclude").val() != undefined) {
+        exclude = $("#exclude").val();
         search += exclude;
       }
 
