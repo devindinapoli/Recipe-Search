@@ -18,3 +18,14 @@
 .row {
     margin-bottom: 0;
 }
+
+.recipe-box{
+    height:410px;
+    border:1px solid black;
+    border-radius: 2px;
+    overflow-x: scroll;
+}
+.header{
+    background-color: slateblue
+}
+
