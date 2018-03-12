@@ -1,122 +1,124 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <!-- our custom styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Da Recipe App</title>
 
-    <!-- firebase link -->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- our custom styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Da Recipe App</title>
 
-    <!-- Google maps APIkey script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoiRgZT3AVWccCkBrF-vSTZcYk1rAcSXg&callback=initMap"
+  <!-- firebase link -->
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+
+  <!-- Google maps APIkey script -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoiRgZT3AVWccCkBrF-vSTZcYk1rAcSXg&callback=initMap"
     type="text/javascript"></script>
 
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div class="container">
+  <div class="container">
 
 
+    <div class="row">
+      <div class="col s12">
+        <div class="card-panel header">
+          <span class="white-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non sit, delectus eos optio vitae id voluptatem amet,
+            facere molestiae, iure aperiam aliquid corrupti exercitationem at totam fugiat molestias error assumenda!
+          </span>
+        </div>
     
-      
+       </div>
+    </div>
+
+     
 
 
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <hr>
-      
-      <div class="row recipe">
-          <div class ="recipe-cards">
-              <div class="col s4 recipe-card">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="assets/images/sample-1.jpg">
-                      <span class="card-title">Recipe Name</span>
-                    </div>
-                    <div class="card-content">
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione fugiat saepe</p>
-                    </div>
-                    <div class="card-action">
-                      <a class="link" href="#">Link to recipe page</a>
-                    </div>
-                  </div>
-                </div>
-        
-                <div class="col s4 recipe-card">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="assets/images/sample-1.jpg">
-                      <span class="card-title">Recipe Name</span>
-                    </div>
-                    <div class="card-content">
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione fugiat saepe</p>
-                    </div>
-                    <div class="card-action">
-                      <a class="link" href="#">Link to recipe page</a>
-                    </div>
-                  </div>
-                </div>
-        
-                <div class="col s4 recipe-card">
-                  <div class="card">
-                    <div class="card-image">
-                      <img src="assets/images/sample-1.jpg">
-                      <span class="card-title">Recipe Name</span>
-                    </div>
-                    <div class="card-content">
-                      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione fugiat saepe</p>
-                    </div>
-                    <div class="card-action">
-                      <a class="link" href="#">Link to recipe page</a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="col s4 recipe-card">
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="assets/images/sample-1.jpg">
-                        <span class="card-title">Recipe Name</span>
-                      </div>
-                      <div class="card-content">
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione fugiat saepe</p>
-                      </div>
-                      <div class="card-action">
-                        <a class="link" href="#">Link to recipe page</a>
-                      </div>
-                    </div>
-              </div>
-      </div>
-      </div>
+    <!--Recipe Cards w/ Horizontal Scrollbox-->
+    <hr>
+    <div class="row">
+      <div class="recipe-box">
+        <div class="col s4 recipe-card">
+          <div class="card">
+            <div class="card-image">
+              <img src="assets/images/sample-1.jpg">
+              <span class="card-title">Recipe Name</span>
+            </div>
+            <div class="card-content">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
+                fugiat saepe</p>
+            </div>
+            <div class="card-action">
+              <a class="link" href="#">Link to recipe page</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col s4 recipe-card">
+          <div class="card">
+            <div class="card-image">
+              <img src="assets/images/sample-1.jpg">
+              <span class="card-title">Recipe Name</span>
+            </div>
+            <div class="card-content">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
+                fugiat saepe</p>
+            </div>
+            <div class="card-action">
+              <a class="link" href="#">Link to recipe page</a>
+            </div>
+          </div>
+        </div>
 
+        <div class="col s4 recipe-card">
+          <div class="card">
+            <div class="card-image">
+              <img src="assets/images/sample-1.jpg">
+              <span class="card-title">Recipe Name</span>
+            </div>
+            <div class="card-content">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
+                fugiat saepe</p>
+            </div>
+            <div class="card-action">
+              <a class="link" href="#">Link to recipe page</a>
+            </div>
+          </div>
+        </div>
 
-
+        <div class="col s4 recipe-card">
+          <div class="card">
+            <div class="card-image">
+              <img src="assets/images/sample-1.jpg">
+              <span class="card-title">Recipe Name</span>
+            </div>
+            <div class="card-content">
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
+                fugiat saepe</p>
+            </div>
+            <div class="card-action">
+              <a class="link" href="#">Link to recipe page</a>
+            </div>
+          </div>
+        </div>
 
 
       </div>
+    </div>
+
+
+
+
+
+
+  </div>
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -125,4 +127,4 @@
     <script src="assets/javascript/app.js"></script>
   </body>
 </html>
-      
+     

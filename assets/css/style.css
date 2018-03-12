@@ -1,12 +1,10 @@
-.card{
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-   
-}
-.recipe-cards{
+.recipe-box{
     height:410px;
     border:1px solid black;
+    border-radius: 2px;
     overflow-x: scroll;
+}
+.header{
+    background-color: slateblue
 }
 
