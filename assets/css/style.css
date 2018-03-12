@@ -1,0 +1,12 @@
+.card{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+   
+}
+.recipe-cards{
+    height:410px;
+    border:1px solid black;
+    overflow-x: scroll;
+}
+
