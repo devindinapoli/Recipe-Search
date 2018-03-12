@@ -1,0 +1,20 @@
+.search-div {
+    border: 2px solid black;
+}
+
+.right-border {
+    border-right: 2px solid black;
+}
+
+.powered-by {
+    margin-top: 50px;
+    font-style: italic;
+}
+
+.input-field {
+    margin-top: 40px;
+}
+
+.row {
+    margin-bottom: 0;
+}
