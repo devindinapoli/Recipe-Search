@@ -35,7 +35,7 @@ var generateCards = function(){
 
 var recipeCall = function(){
   for(var i= 0; i < recipeArray.length; i++){  
-  var newUrl = "http://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
+  var newUrl = "https://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
     $.ajax({
     url: newUrl,
     method: "GET"
