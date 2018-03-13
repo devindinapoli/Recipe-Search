@@ -24,6 +24,20 @@
     });
   }
 
+  -function generateTable(){
+    -  $(".scrollbox").empty();
+    -  var box = $("<div>");
+    -  box.addClass("recipe-box")
+    -  $(".scrollbox").append(box);
+    -}
+    -
+    -$("#zip-button").on("click", function(event){
+    -  event.preventDefault();
+    -  var zip = $("#zip-search").val().trim();
+    -  var newMap = $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+" + zip)
+    -  console.log(newMap);
+    -})
+    -
   $("#dish-btn").on("click", function (event) {
       event.preventDefault();
       var search = queryUrl;
@@ -38,9 +52,11 @@
         console.log(dishName);
       }
       if($("#include-ingredient").val() != "") {
-        ingredients = $("#include-ingredient").val().trim();
-        search += "&allowedIngredient[]=" + ingredients;
-        console.log(ingredients);
+        -        var ingredients = $("#include-ingredient").val().trim();
+        -        ingredientArray = ingredients.split(" ");
+        -        for(var i = 0; i < ingredientArray.length; i++) {
+        -          search += "&allowedIngredient[]=" + ingredientArray[i];
+        -          console.log(ingredientArray[i]);
       }
       if($("#exclude-ingredient").val() != "") {
          var exclude = $("#exclude-ingredient").val().trim();
