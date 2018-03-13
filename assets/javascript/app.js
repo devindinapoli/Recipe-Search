@@ -11,7 +11,7 @@ messagingSenderId: "380507002059"
 firebase.initializeApp(config);
 
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResults=10&start=1";
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=60&start=1";
 
 var recipeArray= [];
 var cardArray = [];
@@ -22,7 +22,7 @@ var generateCards = function(){
      $("<div class='col s4 recipe-card'>" +
       "<div class='card'>" + 
       "<div class='card-image'>" + 
-      "<img src=" + cardArray[i].images[0].hostedSmallUrl + ">" +
+      "<img src=" + cardArray[i].images[0].hostedMediumUrl + ">" +
       "<span class='card-title'>" + cardArray[i].name + "</span>" + 
       "</div>" +
       "<div class='card-content'>" + 
