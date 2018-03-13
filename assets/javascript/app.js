@@ -11,7 +11,7 @@ messagingSenderId: "380507002059"
 firebase.initializeApp(config);
 
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResults=10&start=1";
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResults=10&start=1";
 
 var recipeArray= [];
 var cardArray = [];
