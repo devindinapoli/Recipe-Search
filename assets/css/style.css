@@ -3,10 +3,7 @@
     border-radius: 2px;
     background-color: seashell;
     padding: 40px;
-}
-
-.right-border {
-    border-right: 1px solid black;
+    margin-bottom: 20px;
 }
 
 .powered-by {
@@ -47,24 +44,29 @@ body {
 }
 
 .zip-div {
-    margin-top: 19px;
-    margin-right: 12px;
     background-color: seashell;
-    margin-left: 13px;
     border: 1px solid black;
     border-radius: 2px;
     padding-bottom: 10px;
-    padding: 0 20px 20px 20px;
+    padding: 41px 20px;
+    margin: 20px 0 0 0;
 }
 
 .dish {
     margin-top: 46px;
 }
 
-#zip-button {
-    margin-bottom: 5px;
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
 }
 
-#zip-search {
-   margin-bottom: 10px;
+.map-responsive iframe {
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
 }

@@ -27,7 +27,7 @@
       <div class="row">
 
         <!-- search div -->
-        <div class="col s8">
+        <div class="col s12 col m7">
         <div class="search-div">
           <div class="input-field">
             <input id="search-dish" type="text" class="validate">
@@ -51,16 +51,18 @@
       
 
       <!-- google maps div -->
-      <div class="col s4">
+      <div class="col s12 col m5">
         <div class="maps-div">
           <div id="map-display">
             <!-- Google Maps goes here -->
-            <iframe
+            <div class="map-responsive">
+            <iframe id = "map"
               width="300"
               height="300"
               frameborder="0" style="border:0"
               src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
             </iframe>
+            </div>
           </div>
           
           <form>
@@ -80,9 +82,8 @@
     </div>
 
       <!--Recipe Cards w/ Scrollbox-->
-      <div class="row">
-        <div class="recipe-box">
-        </div>
+      <div class="row scrollbox">
+    
       </div>
     </div><!-- end .container -->
     
