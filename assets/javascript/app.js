@@ -26,7 +26,7 @@ var generateCards = function(){
       "</div>" +
       "<div class='card-content'>" + 
       "<p class=recipe-p>Recipe: </p>" +
-      "<a class='link' href='" + cardArray[i].source.sourceRecipeUrl + "'>" + cardArray[i].source.sourceDisplayName + "</a>" +
+      "<a class='link' target='_blank' href='" + cardArray[i].source.sourceRecipeUrl + "'>" + cardArray[i].source.sourceDisplayName + "</a>" +
       "</div></div>");
     }
   $(".recipe-box").append(recipeCard);
@@ -107,6 +107,8 @@ $("#dish-btn").on("click", function (event){
     generateTable();
   }
   $("#search-dish").val("");
+  $("#include-ingredient").val("");
+  $("#exclude-ingredient").val("");
   });
 
 //initializes image carousel
