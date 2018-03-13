@@ -1,11 +1,10 @@
-
 var config = {
-apiKey: "AIzaSyAhzmSyewm-Vrt5huNVuAftTflrdMwBxEM",
-authDomain: "project1-7a46c.firebaseapp.com",
-databaseURL: "https://project1-7a46c.firebaseio.com",
-projectId: "project1-7a46c",
-storageBucket: "project1-7a46c.appspot.com",
-messagingSenderId: "380507002059"
+  apiKey: "AIzaSyAhzmSyewm-Vrt5huNVuAftTflrdMwBxEM",
+  authDomain: "project1-7a46c.firebaseapp.com",
+  databaseURL: "https://project1-7a46c.firebaseio.com",
+  projectId: "project1-7a46c",
+  storageBucket: "project1-7a46c.appspot.com",
+  messagingSenderId: "380507002059"
 };
 
 firebase.initializeApp(config);
@@ -18,8 +17,8 @@ var cardArray = [];
 
 var generateCards = function(){
   for(var i = 0; i < cardArray.length; i++){
-    var recipeCard =
-     $("<div class='col s4 recipe-card'>" +
+      var recipeCard =
+      $("<div class='col s4 recipe-card'>" +
       "<div class='card'>" + 
       "<div class='card-image'>" + 
       "<img src=" + cardArray[i].images[0].hostedMediumUrl + ">" +
@@ -29,32 +28,30 @@ var generateCards = function(){
       "<p class=recipe-p>Recipe: </p>" +
       "<a class='link' href='" + cardArray[i].source.sourceRecipeUrl + "'>" + cardArray[i].source.sourceDisplayName + "</a>" +
       "</div></div>");
-  }
+    }
   $(".recipe-box").append(recipeCard);
 }
 
 var recipeCall = function(){
   for(var i= 0; i < recipeArray.length; i++){  
-  var newUrl = "https://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
+    var newUrl = "https://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
     $.ajax({
     url: newUrl,
     method: "GET"
-  }).then(function(response){
+    }).then(function(response){
     console.log(response);
     cardArray.push(response);
     generateCards();
-  })
+    })
+  }
 }
-}
 
-
-var yumCall = function(search) {
-
+var yumCall = function(search){
   $.ajax({
     url: search,
     method: "GET"
   }).then(function(response) {
-      for(var j = 0; j < response.matches.length; j++){
+    for(var j = 0; j < response.matches.length; j++){
       recipeArray.push(response.matches[j].id);
     }
     recipeCall();
@@ -75,46 +72,48 @@ $("#zip-button").on("click", function(event){
   console.log(newMap);
 })
     
-  $("#dish-btn").on("click", function (event) {
-      event.preventDefault();
-      var search = queryUrl;
-      var ingredientArray = [];
-      var excludeArray =[];
-
-      if($("#search-dish").val() != "") {
-        dishName = $("#search-dish").val().trim();
-        dishName = dishName.split(" ").join('+');
-        search += "&q=" + dishName
-        console.log(dishName);
-      }
-      if($("#include-ingredient").val() != "") {
-        var ingredients = $("#include-ingredient").val().trim();
-        ingredientArray = ingredients.split(" ");
-        for(var i = 0; i < ingredientArray.length; i++) {
-          search += "&allowedIngredient[]=" + ingredientArray[i];
-          console.log(ingredientArray[i]);
-        }
-      }
-      if($("#exclude-ingredient").val() != "") {
-         var exclude = $("#exclude-ingredient").val().trim();
-         excludeArray = exclude.split(" ");
-         for(var i = 0; i < ingredientArray.length; i++) {
-          search += "&excludedIngredient[]=" + exclude;
-          console.log(excludeArray[i]);
-         }
-      }
-      console.log(search)
-      if(search != queryUrl  )
-        yumCall(search);
-        generateTable();
-       
+$("#dish-btn").on("click", function (event){
+  cardArray = [];
+  recipeArray = [];
+  event.preventDefault();
+  var search = queryUrl;
+  var ingredientArray = [];
+  var excludeArray =[];
+  if($("#search-dish").val() != "") {
+    dishName = $("#search-dish").val().trim();
+    dishName = dishName.split(" ").join('+');
+    search += "&q=" + dishName
+    console.log(dishName);
+  }
+  if($("#include-ingredient").val() != "") {
+    var ingredients = $("#include-ingredient").val().trim();
+    ingredientArray = ingredients.split(" ");
+    for(var i = 0; i < ingredientArray.length; i++){
+      search += "&allowedIngredient[]=" + ingredientArray[i];
+      console.log(ingredientArray[i]);
+    }
+  }
+  if($("#exclude-ingredient").val() != ""){
+    var exclude = $("#exclude-ingredient").val().trim();
+    excludeArray = exclude.split(" ");
+    for(var i = 0; i < ingredientArray.length; i++){
+      search += "&excludedIngredient[]=" + excludeArray[i];
+      console.log(excludeArray[i]);
+    }
+  }
+  console.log(search)
+  if(search != queryUrl){
+    yumCall(search);
+    generateTable();
+  }
+  $("#search-dish").val("");
   });
 
-  //initializes image carousel
-  $(document).ready(function(){
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
-    $('.carousel').carousel();
-    setInterval(function() {
-      $('.carousel').carousel('next');
+//initializes image carousel
+$(document).ready(function(){
+  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.carousel').carousel();
+  setInterval(function() {
+    $('.carousel').carousel('next');
     }, 3000); 
   });
