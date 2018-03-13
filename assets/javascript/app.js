@@ -44,9 +44,10 @@ $("#zip-button").on("click", function(event){
       var search = queryUrl;
       var ingredientArray = [];
       var excludeArray =[];
-      
+
       if($("#search-dish").val() != "") {
         dishName = $("#search-dish").val().trim();
+        dishName = dishName.split(" ").join('+');
         search += "&q=" + dishName
         console.log(dishName);
       }
