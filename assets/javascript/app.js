@@ -13,16 +13,39 @@ firebase.initializeApp(config);
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
 var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey;
 
+var newResponse= [];
+
+var recipeCall = function(){
+  for(var i= 0; i < newResponse.length; i++){  
+  var newUrl = "http://api.yummly.com/v1/api/recipe/" + newResponse[i] + "?" + apiKey;
+  $.ajax({
+    url: newUrl,
+    method: "GET"
+  }).then(function(response){
+    console.log(response);
+  })
+}
+}
+
 
 var yumCall = function(search) {
 
   $.ajax({
     url: search,
     method: "GET"
-    }).then(function(response) {
-    console.log(response);
+  }).then(function(response) {
+      for(var j = 0; j < response.matches.length; j++){
+      newResponse.push(response.matches[j].id);
+    }
+    recipeCall();
+    console.log(newResponse);
   });
 }
+
+
+
+
+
 
 function generateTable(){
   $(".scrollbox").empty();
@@ -84,8 +107,8 @@ $("#zip-button").on("click", function(event){
       console.log(search)
       if(search != queryUrl  )
         yumCall(search);
-
         generateTable();
+        
   });
 
   //initializes image carousel
