@@ -1,4 +1,4 @@
-// Initialize Firebase
+
 var config = {
 apiKey: "AIzaSyAhzmSyewm-Vrt5huNVuAftTflrdMwBxEM",
 authDomain: "project1-7a46c.firebaseapp.com",
@@ -11,18 +11,38 @@ messagingSenderId: "380507002059"
 firebase.initializeApp(config);
 
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey;
+var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResults=10&start=1";
 
-var newResponse= [];
+var recipeArray= [];
+var cardArray = [];
+
+var generateCards = function(){
+  for(var i = 0; i < cardArray.length; i++){
+    var recipeCard =
+     $("<div class='col s4 recipe-card'>" +
+      "<div class='card'>" + 
+      "<div class='card-image'>" + 
+      "<img src=" + cardArray[i].images[0].hostedSmallUrl + ">" +
+      "<span class='card-title'>" + cardArray[i].name + "</span>" + 
+      "</div>" +
+      "<div class='card-content'>" + 
+      "<p class=recipe-p>Recipe: </p>" +
+      "<a class='link' href='" + cardArray[i].source.sourceRecipeUrl + "'>" + cardArray[i].source.sourceDisplayName + "</a>" +
+      "</div></div>");
+  }
+  $(".recipe-box").append(recipeCard);
+}
 
 var recipeCall = function(){
-  for(var i= 0; i < newResponse.length; i++){  
-  var newUrl = "http://api.yummly.com/v1/api/recipe/" + newResponse[i] + "?" + apiKey;
-  $.ajax({
+  for(var i= 0; i < recipeArray.length; i++){  
+  var newUrl = "http://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
+    $.ajax({
     url: newUrl,
     method: "GET"
   }).then(function(response){
     console.log(response);
+    cardArray.push(response);
+    generateCards();
   })
 }
 }
@@ -35,17 +55,11 @@ var yumCall = function(search) {
     method: "GET"
   }).then(function(response) {
       for(var j = 0; j < response.matches.length; j++){
-      newResponse.push(response.matches[j].id);
+      recipeArray.push(response.matches[j].id);
     }
     recipeCall();
-    console.log(newResponse);
   });
 }
-
-
-
-
-
 
 function generateTable(){
   $(".scrollbox").empty();
@@ -98,7 +112,7 @@ $("#zip-button").on("click", function(event){
       }
       if($("#exclude-ingredient").val() != "") {
          var exclude = $("#exclude-ingredient").val().trim();
-         excludeArray = exlude.split(" ");
+         excludeArray = exclude.split(" ");
          for(var i = 0; i < ingredientArray.length; i++) {
           search += "&excludedIngredient[]=" + exclude;
           console.log(excludeArray[i]);
@@ -108,5 +122,5 @@ $("#zip-button").on("click", function(event){
       if(search != queryUrl  )
         yumCall(search);
         generateTable();
-        
+       
   });
