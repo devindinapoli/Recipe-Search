@@ -44,9 +44,10 @@ $("#zip-button").on("click", function(event){
       var search = queryUrl;
       var ingredientArray = [];
       var excludeArray =[];
-      
+
       if($("#search-dish").val() != "") {
         dishName = $("#search-dish").val().trim();
+        dishName = dishName.split(" ").join('+');
         search += "&q=" + dishName
         console.log(dishName);
       }
@@ -60,7 +61,7 @@ $("#zip-button").on("click", function(event){
       }
       if($("#exclude-ingredient").val() != "") {
          var exclude = $("#exclude-ingredient").val().trim();
-         excludeArray = exlude.split(" ");
+         excludeArray = exclude.split(" ");
          for(var i = 0; i < ingredientArray.length; i++) {
           search += "&excludedIngredient[]=" + exclude;
           console.log(excludeArray[i]);
