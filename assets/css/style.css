@@ -1,9 +1,7 @@
 .search-div {
     border: 1px solid black;
-    background-color: seashell;
-    width: 350px;
-    height: 245px;
     border-radius: 2px;
+    background-color: seashell;
 }
 
 .right-border {
@@ -17,6 +15,7 @@
 
 .input-field {
     margin-top: 40px;
+    margin-left: 10px;
 }
 .recipe-box{
     height:410px;
@@ -24,25 +23,40 @@
     border-radius: 2px;
     overflow-x: scroll;
     background-color: seashell;
+    margin-left: 11px;
+    margin-right: 23px;
 }
 .header{
     background-color: seashell;
     width: 100%;
 }
 body{
-    background-color: rgb(206, 82, 24);
+    background-image: url("../images/background.jpg")
 }
 .container{
     width: 80%;
 }
 .zip{
-    margin-top: 5px;
-    width: 150px;
-    margin-left: 75px;
+    margin-top: 19px;
+    margin-right: 12px;
+    background-color: seashell;
+    margin-left: 13px;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding-bottom: 5px;
 }
 .dish{
     margin-top: 46px;
 }
 .header{
+    background-color: seashell;
+    width: 1010px;
     margin-bottom: 0;
+    margin-top: 20px;
+}
+#zip-button{
+    margin-bottom: 5px;
+}
+#zip-search{
+   margin-bottom: 10px;
 }
