@@ -29,54 +29,46 @@
     <div class="row">
 
       <!-- search div -->
-      <div class="col s8 search-div">
-
-        <!-- search by dish -->
-        <div class="row">
-          <div class="col s4 right-border">
-            <h6>Search by Dish</h6>
-            <div class="input-field">
-              <input id="search-dish" type="text" class="validate">
-              <label for="dish_search">Dish Name</label>
-            </div>
-            <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search Dish</button>
-            <div class="powered-by">
-              <h6>Powered By ________</h6>
-            </div>
+      <div class="col s8">
+        <div class="search-div">
+          <div class="input-field">
+            <input id="search-dish" type="text" class="validate">
+            <label for="dish_search">Dish Name</label>
           </div>
-
-          <!-- search by ingredients -->
-          <div class="col s8">
-            <h6>Search by Ingredients</h6>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="ing-one" type="text" class="validate">
-                <label for="ingredient_search">List Ingredients</label>
-              </div>
-              <div class="col s12">
-                <button id="ing-button" class="btn waves-effect waves-light" type="submit" name="action">Search Ingredients</button>
-              </div>
-            </div>
+          <div class="input-field">
+            <input id="include-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Include Ingredients</label>
+          </div>
+          <div class="input-field">
+            <input id="exclude-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Exclude Ingredients</label>
+          </div>
+          <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+          <div class="powered-by">
+            <h6>Powered By Yummly</h6>
           </div>
         </div>
+      </div>
 
-      </div><!-- end search div -->
+      
 
       <!-- google maps div -->
-      <div class="col s4 maps-div">
-        <div class="row">
-        <div id="map-display" class="col s12">
-          <!-- Google Maps goes here -->
-        </div>
-        <form class="col s12">
-          <div class="input-field">
-            <input id="zip-search" type="number" class="validate">
-            <label for="zip_code">Zip Code</label>
+      <div class="col s4">
+        <div class="maps-div">
+          <div id="map-display">
+            <!-- Google Maps goes here -->
+            <img src="http://via.placeholder.com/300x300" alt="maps api placeholder">
           </div>
-          <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
+          
+          <form>
+            <div class="input-field">
+              <input id="zip-search" type="number" class="validate">
+              <label for="zip_code">Zip Code</label>
+            </div>
+            <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
         </div>
       </div><!-- end google maps div -->
 

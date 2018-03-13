@@ -1,5 +1,9 @@
+body {
+    padding: 1rem 0; /* temporary, just so our content isnt toucning browser window */
+}
 .search-div {
     border: 2px solid black;
+    padding: 0 1rem;
 }
 
 .right-border {
