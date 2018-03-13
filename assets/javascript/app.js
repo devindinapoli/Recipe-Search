@@ -27,23 +27,29 @@
   $("#dish-btn").on("click", function (event) {
       event.preventDefault();
       var search = queryUrl;
-      var ingredients;
-      var exclude;
-
+      var ingredientArray = [];
+      var excludeArray =[];
+      
       if($("#search-dish").val() != "") {
         dishName = $("#search-dish").val().trim();
         search += "&q=" + dishName
         console.log(dishName);
       }
       if($("#include-ingredient").val() != "") {
-        ingredients = $("#include-ingredient").val().trim();
-        search += "&allowedIngredient[]=" + ingredients;
-        console.log(ingredients);
+        var ingredients = $("#include-ingredient").val().trim();
+        ingredientArray = ingredients.split(" ");
+        for(var i = 0; i < ingredientArray.length; i++) {
+          search += "&allowedIngredient[]=" + ingredientArray[i];
+          console.log(ingredientArray[i]);
+        }
       }
       if($("#exclude-ingredient").val() != "") {
-        exclude = $("#exclude-ingredient").val().trim();
-        search += "&excludedIngredient[]=" + exclude;
-        console.log(exclude);
+         var exclude = $("#exclude-ingredient").val().trim();
+         excludeArray = exlude.split(" ");
+         for(var i = 0; i < ingredientArray.length; i++) {
+          search += "&excludedIngredient[]=" + exclude;
+          console.log(excludeArray[i]);
+         }
       }
       console.log(search)
       if(search != queryUrl  )
