@@ -2,20 +2,21 @@
     border: 1px solid black;
     border-radius: 2px;
     background-color: seashell;
+    padding: 40px;
     margin-bottom: 20px;
 }
-.right-border {
-    border-right: 1px solid black;
-}
+
 .powered-by {
     margin-top: 50px;
     font-style: italic;
 }
+
 .input-field {
     margin-top: 40px;
     margin-left: 10px;
 }
-.recipe-box{
+
+.recipe-box {
     height:410px;
     border:1px solid black;
     border-radius: 2px;
@@ -24,46 +25,45 @@
     margin-left: 11px;
     margin-right: 23px;
 }
-.header{
+
+.header {
     background-color: seashell;
     width: 100%;
-}
-body{
-    background-image: url("../images/background.jpg")
-}
-.container{
-    width: 80%;
-}
-.zip{
-    margin-top: 19px;
-    margin-right: 12px;
-    background-color: seashell;
-    margin-left: 13px;
-    border: 1px solid black;
-    border-radius: 2px;
-    padding-bottom: 5px;
-}
-.dish{
-    margin-top: 46px;
-}
-.header{
-    background-color: seashell;
     margin-bottom: 0;
     margin-top: 20px;
 }
-#zip-button{
-    margin-bottom: 5px;
+
+body {
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-#zip-search{
-   margin-bottom: 10px;
+
+.container {
+    width: 80%;
 }
-.map-responsive{
+
+.zip-div {
+    background-color: seashell;
+    border: 1px solid black;
+    border-radius: 2px;
+    padding-bottom: 10px;
+    padding: 41px 20px;
+    margin: 20px 0 0 0;
+}
+
+.dish {
+    margin-top: 46px;
+}
+
+.map-responsive {
     overflow:hidden;
     padding-bottom:56.25%;
     position:relative;
     height:0;
 }
-.map-responsive iframe{
+
+.map-responsive iframe {
     left:0;
     top:0;
     height:100%;
