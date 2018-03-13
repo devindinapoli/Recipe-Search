@@ -109,6 +109,7 @@ $("#zip-button").on("click", function(event){
         yumCall(search);
         generateTable();
         
+<<<<<<< HEAD
   });
 
   //initializes image carousel
@@ -118,4 +119,6 @@ $("#zip-button").on("click", function(event){
     setInterval(function() {
       $('.carousel').carousel('next');
     }, 3000); 
+=======
+>>>>>>> 0912cd4ab1a9fb0e779e29796070af5cd2f153d4
   });
