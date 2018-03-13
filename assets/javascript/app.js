@@ -10,13 +10,14 @@
 
   firebase.initializeApp(config);
 
+  var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
+  var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey;
+
 
   var yumCall = function(search) {
-    var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-    var queryUrl = "http://api.yummly.com/v1/api/recipes?" + apiKey;
 
     $.ajax({
-        url: queryUrl + search,
+        url: search,
         method: "GET"
     }).then(function(response) {
         console.log(response);
@@ -25,22 +26,27 @@
 
   $("#dish-btn").on("click", function (event) {
       event.preventDefault();
-      var search;
-      var ingredients = [];
-      var exclude = [];
+      var search = queryUrl;
+      var ingredients;
+      var exclude;
 
-      if($("#ing-1").val() != null) {
-        var ingredients = $("#ing-1").val();
-        search += ingredients;
+      if($("#search-dish").val() != "") {
+        dishName = $("#search-dish").val().trim();
+        search += "&q=" + dishName
+        console.log(dishName);
       }
-      if($("#search-dish").val() != null) {
-        var dishName = $("#dish-name").val();
-        search += dishName
+      if($("#include-ingredient").val() != "") {
+        ingredients = $("#include-ingredient").val().trim();
+        search += "&allowedIngredient[]=" + ingredients;
+        console.log(ingredients);
       }
-      if($("#exclude").val() != null) {
-        var  exclude = $("#exclude").val();
-        search += exclude;
+      if($("#exclude-ingredient").val() != "") {
+        exclude = $("#exclude-ingredient").val().trim();
+        search += "&excludedIngredient[]=" + exclude;
+        console.log(exclude);
       }
+      console.log(search)
+      if(search != queryUrl  )
+        yumCall(search);
 
-      yumCall(search);
   });

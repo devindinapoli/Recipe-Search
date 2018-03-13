@@ -3,197 +3,91 @@
 
   <head>
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-          
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">    
     <!-- our custom styles -->
     <link rel="stylesheet" href="assets/css/style.css">
-
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Da Recipe App</title>
-  
     <!-- firebase link -->
-  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-
-  <!-- Google maps APIkey script -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoiRgZT3AVWccCkBrF-vSTZcYk1rAcSXg&callback=initMap"
-    type="text/javascript"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
   </head>
-
   <body>
-    <div class="container center-align">
-    <div class="row">
-
-      <!-- search div -->
-      <div class="col s8 search-div">
-
-        <!-- search by dish -->
-        <div class="row">
-          <div class="col s4 right-border">
-            <h6>Search by Dish</h6>
-            <div class="input-field">
-              <input id="search-dish" type="text" class="validate">
-              <label for="dish_search">Dish Name</label>
-            </div>
-            <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search Dish</button>
-            <div class="powered-by">
-              <h6>Powered By ________</h6>
-            </div>
-          </div>
-
-          <!-- search by ingredients -->
-          <div class="col s8">
-            <h6>Search by Ingredients</h6>
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="ing-one" type="text" class="validate">
-                <label for="ingredient_search">List Ingredients</label>
-              </div>
-              <div class="col s12">
-                <button id="ing-button" class="btn waves-effect waves-light" type="submit" name="action">Search Ingredients</button>
-              </div>
-            </div>
+    <div class="container center-align">    
+      <div class="row">
+        <div class="col s12">
+          <div class="card-panel header">
+            <h5>Stuff goes here</h5>
           </div>
         </div>
+      </div>
+                  
+      <div class="row">
 
-      </div><!-- end search div -->
+        <!-- search div -->
+        <div class="col s8">
+        <div class="search-div">
+          <div class="input-field">
+            <input id="search-dish" type="text" class="validate">
+            <label for="dish_search">Dish Name</label>
+          </div>
+          <div class="input-field">
+            <input id="include-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Include Ingredients</label>
+          </div>
+          <div class="input-field">
+            <input id="exclude-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Exclude Ingredients</label>
+          </div>
+          <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+          <div class="powered-by">
+            <h6>Powered By Yummly</h6>
+          </div>
+        </div>
+      </div>
+
+      
 
       <!-- google maps div -->
-      <div class="col s4 maps-div">
-        <div class="row">
-        <div id="map-display" class="col s12">
-          <!-- Google Maps goes here -->
-        </div>
-        <form class="col s12">
-          <div class="input-field">
-            <input id="zip-search" type="number" class="validate">
-            <label for="zip_code">Zip Code</label>
+      <div class="col s4">
+        <div class="maps-div">
+          <div id="map-display">
+            <!-- Google Maps goes here -->
+            <iframe
+              width="300"
+              height="300"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
+            </iframe>
           </div>
-          <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-          </button>
-        </form>
+          
+          <form>
+            <div class="input-field zip">
+              <input id="zip-search" type="number"  class="validate">
+              <label for="zip_code">Zip Code</label>
+              <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </form>
         </div>
       </div><!-- end google maps div -->
 
     </div>
 
-
-
-    
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-
-
-    <div class="row">
-      <div class="col s12">
-        <div class="card-panel header">
-          <span class="white-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non sit, delectus eos optio vitae id voluptatem amet,
-            facere molestiae, iure aperiam aliquid corrupti exercitationem at totam fugiat molestias error assumenda!
-          </span>
+      <!--Recipe Cards w/ Scrollbox-->
+      <div class="row">
+        <div class="recipe-box">
         </div>
-    
-       </div>
-    </div>
-
-     
-
-
-    <!--Recipe Cards w/ Horizontal Scrollbox-->
-    <hr>
-    <div class="row">
-      <div class="recipe-box">
-        <div class="col s4 recipe-card">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/sample-1.jpg">
-              <span class="card-title">Recipe Name</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
-                fugiat saepe</p>
-            </div>
-            <div class="card-action">
-              <a class="link" href="#">Link to recipe page</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s4 recipe-card">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/sample-1.jpg">
-              <span class="card-title">Recipe Name</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
-                fugiat saepe</p>
-            </div>
-            <div class="card-action">
-              <a class="link" href="#">Link to recipe page</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s4 recipe-card">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/sample-1.jpg">
-              <span class="card-title">Recipe Name</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
-                fugiat saepe</p>
-            </div>
-            <div class="card-action">
-              <a class="link" href="#">Link to recipe page</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s4 recipe-card">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/sample-1.jpg">
-              <span class="card-title">Recipe Name</span>
-            </div>
-            <div class="card-content">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A sed, magni doloribus, rerum eius ea quae ratione
-                fugiat saepe</p>
-            </div>
-            <div class="card-action">
-              <a class="link" href="#">Link to recipe page</a>
-            </div>
-          </div>
-        </div>
-
-
       </div>
-    </div>
-
-
-</div><!-- end .container -->
-
-
-
-  </div>
+    </div><!-- end .container -->
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <!-- app.js -->
     <script src="assets/javascript/app.js"></script>
-
-
-
   </body>
 </html>
-     

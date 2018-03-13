@@ -6,13 +6,13 @@ Contributors -  Devin Dinapoli
                 Abby Olaleye
 
 Objective - 
-    We intend to create an app the uses the Yummly or Spoonacular api to search their recipe database. Search options will be by dish, ingredients, or diet.  
+   We intend to create an app the uses the Yummly or Spoonacular api to search their recipe database. Search options will be by dish, ingredients, or diet.
 
-    The app will store the user's selected ingredients.  We also intend to allow users to favorite recipes.
+   The app will store the user's selected ingredients.  We also intend to allow users to favorite recipes.
 
-    Google maps API will be used to provide the user with nearby grocery stores they can purchase the indgredients for their dish.
+   Google maps API will be used to provide the user with nearby grocery stores they can purchase the indgredients for their dish.
 
-    When searching by ingredients, we would like to add the functionality of pulling the ingredient list from the JSON, comparing the to user's selected ingredients on hand, and compiling a shopping list for the user with the remaining ingredients.
+   When searching by ingredients, we would like to add the functionality of pulling the ingredient list from the JSON, comparing the to user's selected ingredients on hand, and compiling a shopping list for the user with the remaining ingredients.
 
 UI -
     Image is uploaded of the sketched UI.
