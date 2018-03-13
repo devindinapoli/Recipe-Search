@@ -13,79 +13,71 @@
     <title>Da Recipe App</title>
     <!-- firebase link -->
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <!-- Google maps APIkey script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoiRgZT3AVWccCkBrF-vSTZcYk1rAcSXg&callback=initMap"
-    type="text/javascript"></script>
   </head>
   <body>
-
-    <div class="container center-align">
-
+    <div class="container center-align">    
       <div class="row">
         <div class="col s12">
           <div class="card-panel header">
-            <span class="black-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non sit, delectus eos optio vitae id voluptatem amet,
-            facere molestiae, iure aperiam aliquid corrupti exercitationem at totam fugiat molestias error assumenda!
-            </span>
-          </div>         
+            <h5>Stuff goes here</h5>
+          </div>
         </div>
       </div>
+                  
       <div class="row">
+
         <!-- search div -->
-        <div class="col s8 search-div">
-          <!-- search by dish -->
-          <div class="row">
-            <div class="col s4 right-border">
-              <h6>Search by Dish</h6>
-              <div class="input-field dish">
-                <input id="search-dish" type="text" class="validate">
-                <label for="dish_search">Dish Name</label>
-              </div>
-              <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search Dish</button>
-              <div class="powered-by">
-                <h6>Powered By ________</h6>
-              </div>
-            </div>
-            <!-- search by ingredients -->
-            <div class="col s8">
-              <h6>Search by Ingredients</h6>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="ing-one" type="text" class="validate">
-                  <label for="ingredient_search">List Ingredients</label>
-                </div>
-                <div class="col s12">
-                  <button id="ing-button" class="btn waves-effect waves-light" type="submit" name="action">Search Ingredients</button>
-                </div>
-              </div>
-            </div>
+        <div class="col s8">
+        <div class="search-div">
+          <div class="input-field">
+            <input id="search-dish" type="text" class="validate">
+            <label for="dish_search">Dish Name</label>
           </div>
-        </div>
-        <!-- google maps div -->
-        <div class="col s4 maps-div">
-          <div class="row">
-            <div id="map-display" class="col s12">
-              <iframe
-                width="335"
-                height="243"
-                frameborder="0" style="border:0"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA43TMmCjXUe85-x92q9I-6JwURmj42JB4
-                &q=my+location" allowfullscreen>
-              </iframe>
-            </div>
-            <form class="col s4">
-              <div class="input-field zip">
-                <input id="zip-search" type="number" class="validate">
-                <label for="zip_code">Zip Code</label>
-                <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
-            </form>
+          <div class="input-field">
+            <input id="include-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Include Ingredients</label>
+          </div>
+          <div class="input-field">
+            <input id="exclude-ingredient" type="text" class="validate">
+            <label for="ingredient_search">Exclude Ingredients</label>
+          </div>
+          <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+          <div class="powered-by">
+            <h6>Powered By Yummly</h6>
           </div>
         </div>
       </div>
-      <!--Recipe Cards w/ Horizontal Scrollbox-->
+
+      
+
+      <!-- google maps div -->
+      <div class="col s4">
+        <div class="maps-div">
+          <div id="map-display">
+            <!-- Google Maps goes here -->
+            <iframe
+              width="300"
+              height="300"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
+            </iframe>
+          </div>
+          
+          <form>
+            <div class="input-field zip">
+              <input id="zip-search"  class="validate">
+              <label for="zip_code">Zip Code</label>
+            </div>
+            <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+            </button>
+          </form>
+        </div>
+      </div><!-- end google maps div -->
+
+    </div>
+
+      <!--Recipe Cards w/ Scrollbox-->
       <div class="row">
         <div class="recipe-box">
         </div>
