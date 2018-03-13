@@ -1,8 +1,10 @@
 .search-div {
-    border: 1px solid black;
     border-radius: 2px;
     background-color: seashell;
     padding: 40px;
+}
+
+.search {
     margin-bottom: 20px;
 }
 
@@ -11,19 +13,12 @@
     font-style: italic;
 }
 
-.input-field {
-    margin-top: 40px;
-    margin-left: 10px;
-}
-
 .recipe-box {
-    height:410px;
-    border:1px solid black;
+    height: 410px;
     border-radius: 2px;
     overflow-x: scroll;
     background-color: seashell;
-    margin-left: 11px;
-    margin-right: 23px;
+    margin: 0 11px;
 }
 
 .header {
@@ -45,28 +40,35 @@ body {
 
 .zip-div {
     background-color: seashell;
-    border: 1px solid black;
     border-radius: 2px;
     padding-bottom: 10px;
-    padding: 41px 20px;
+    padding: 20px;
     margin: 20px 0 0 0;
+    width: 100%;
 }
 
-.dish {
-    margin-top: 46px;
+.zip {
+    margin: 0;
+}
+
+.header,
+.search-div,
+.zip-div,
+.recipe-box {
+    box-shadow: 1px 2px 14px 2px #404040;
 }
 
 .map-responsive {
-    overflow:hidden;
-    padding-bottom:56.25%;
-    position:relative;
-    height:0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
 }
 
 .map-responsive iframe {
-    left:0;
-    top:0;
-    height:100%;
-    width:100%;
-    position:absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
