@@ -1,12 +1,12 @@
 # Project1
 
-###Contributors -  
-        *Devin Dinapoli*
-        *Jeffrey Easley*
-        *Andrew Knowles*
-        *Abby Olaleye*
+### Contributors -  
+-*Devin Dinapoli*
+-*Jeffrey Easley*
+-*Andrew Knowles*
+-*Abby Olaleye*
 
-###Objective - 
+### Objective - 
     Our app uses the Yummly api to search their recipe database. Search options will be by dish, desired ingredients, and/or ingredients to exclude.  the last feature can be used to exclude spcific ingredients for dietary or allergy purposes.  Ex: Searching for a brownie recipe, but the user is allergic to nuts.
 
    The app will store the user's selected ingredients.  We also intend to allow users to favorite recipes.
@@ -15,17 +15,17 @@
 
    Google maps API will be used to provide the user with nearby grocery stores where they can purchase the indgredients for their dish.
 
-###UI -
+### UI -
     Image is uploaded of the sketched UI.
     Materialize will be the CSS framework.
 
-###Database -
+### Database -
     Firebase will be user to store user data.
 
 
 
 
-###Assignment Requirements - 
+### Assignment Requirements - 
     Must use two apis
         Yummly
         Google maps
@@ -43,14 +43,14 @@
         Will be deployed to Github pages
     Must provide user input validation
 
-###Assignment (nice to haves) -
+### Assignment (nice to haves) -
     Utilize firebase for persistent data storage(basically a requirement)
         We are using firebase
     Mobile responsive
     Use alternative framework like Materialize
         We are using Materialize
 
-###Presentation Requirement - 
+### Presentation Requirement - 
     You will be responsible for preparing a 10 minute presentation
     This will be a formal presentation
     Explain in detail:
@@ -61,7 +61,7 @@
         A demonstrations of its functionality
         Directions for future development
 
-###Grading Metrics - 
+### Grading Metrics - 
     Concept
     Design
     Functionality
