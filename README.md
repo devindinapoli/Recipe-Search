@@ -2,8 +2,11 @@
 
 ### Contributors -  
 -*Devin Dinapoli*
+
 -*Jeffrey Easley*
+
 -*Andrew Knowles*
+
 -*Abby Olaleye*
 
 ### Objective - 
