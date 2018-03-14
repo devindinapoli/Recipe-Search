@@ -120,7 +120,10 @@ $("#dish-btn").on("click", function (event){
     includedIngredients: ingredientArray,
     excludedIngredients: excludeArray
   });
-    
+  //page moves to recipes scrollbox after submit button is clicked
+  $('html, body').animate({
+    scrollTop: $(".scrollbox").offset().top
+  }, 1000);    
 });
 
 //initializes image carousel
@@ -131,3 +134,6 @@ $(document).ready(function(){
     $('.carousel').carousel('next');
     }, 3000); 
 });
+  
+
+
