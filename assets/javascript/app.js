@@ -165,6 +165,13 @@ $(document).ready(function(){
   setInterval(function() {
     $('.carousel').carousel('next');
     }, 3000); 
+  //initializes dropdown in general search
+  $('select').material_select();  
+});
+
+//toggles advanced-search section upon click of advanced-search button
+$("#advanced-button").click(function() {
+  $(".advanced-search").toggle();
 });
   
 

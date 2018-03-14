@@ -49,6 +49,46 @@
                 <input id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
                 <label for="ingredient_search">Are there any ingredients you want to exclude from results?</label>
               </div>
+              <div class="input-field col s12" id="course-dropdown">
+                <select>
+                  <option value="" disabled selected>Choose your course</option>
+                  <option value="american">Breakfast</option>
+                  <option value="mexican">Lunch</option>
+                  <option value="italian">Dinner</option>
+                  <option value="asian">Dessert</option>
+                </select>
+              </div>
+
+              <!-- advanced search -->
+              <a class="waves-effect waves-light btn" id="advanced-button"><i class="material-icons right">arrow_drop_down</i>Advanced Search</a>
+              <div class="advanced-search">
+                <div class="input-field col s12 m6" id="cuisine-dropdown">
+                  <select>
+                    <option value="" disabled selected>Cuisine</option>
+                    <option value="american">American</option>
+                    <option value="mexican">Mexican</option>
+                    <option value="italian">Italian</option>
+                    <option value="asian">Asian</option>
+                  </select>
+                </div>
+                <div class="input-field col s12 m6">
+                  <select>
+                    <option value="" disabled selected>Diet</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                    <input id="time-input" type="number" min="0" max="30" class="validate">
+                    <label for="cooking_time">Cooking Time (min)</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <input id="limit-input" type="number" min="1" max="50"class="validate">
+                      <label for="number_of_recipes">Number of Recipes</label>
+                    </div>
+              </div>
+              <!-- end advanced search -->
+              
               <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
               <div class="powered-by">
                 <h6>Powered By</h6> 
