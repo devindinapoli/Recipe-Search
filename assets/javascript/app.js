@@ -109,6 +109,7 @@ $("#dish-btn").on("click", function (event){
   $("#search-dish").val("");
   $("#include-ingredient").val("");
   $("#exclude-ingredient").val("");
+  $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+near+me");
   });
 
 //initializes image carousel
