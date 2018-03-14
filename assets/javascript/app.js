@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 //Andrew's API
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
 var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=1";
-
+var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
 
@@ -29,11 +29,13 @@ var generateCards = function(){
       "<p class=recipe-p>Recipe: </p>" +
       "<a class='link' target='_blank' href='" + cardArray[i].source.sourceRecipeUrl + "'>" + cardArray[i].source.sourceDisplayName + "</a>" +
       "</div></div>");
+
     }
-  $(".recipe-box").append(recipeCard);
+    $(".recipe-box").append(recipeCard);
 }
 
 var recipeCall = function(){
+  console.log("Lists Off Each Recipe As An Object From Second Ajax Request:")
   for(var i= 0; i < recipeArray.length; i++){  
     var newUrl = "https://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
     $.ajax({
@@ -52,9 +54,12 @@ var yumCall = function(search){
     url: search,
     method: "GET"
   }).then(function(response) {
+    console.log("List Of ID's From First Ajax Request:")
     for(var j = 0; j < response.matches.length; j++){
       recipeArray.push(response.matches[j].id);
+      console.log(response.matches[j].id);
     }
+    console.log("-----------------")
     recipeCall();
   });
 }
@@ -81,31 +86,35 @@ $("#dish-btn").on("click", function (event){
   var search = queryUrl;
   var ingredientArray = [];
   var excludeArray =[];
-  var database = firebase.database();
 
   if($("#search-dish").val() != "") {
     dishName = $("#search-dish").val().trim();
     dishName = dishName.split(" ").join('+');
     search += "&q=" + dishName
+    console.log("Name of the  dish:")
     console.log(dishName);
+    console.log("-----------------")
   }
   if($("#include-ingredient").val() != "") {
     var ingredients = $("#include-ingredient").val().trim();
-    ingredientArray = ingredients.split(" ");
+    ingredientArray = ingredients.split(", ");
     for(var i = 0; i < ingredientArray.length; i++){
       search += "&allowedIngredient[]=" + ingredientArray[i];
+      console.log("Ingredients Allowed:")
       console.log(ingredientArray[i]);
+      console.log("-----------------")
     }
   }
   if($("#exclude-ingredient").val() != ""){
     var exclude = $("#exclude-ingredient").val().trim();
-    excludeArray = exclude.split(" ");
+    excludeArray = exclude.split(", ");
     for(var i = 0; i < ingredientArray.length; i++){
       search += "&excludedIngredient[]=" + excludeArray[i];
+      console.log("Ingredients Excluded:")
       console.log(excludeArray[i]);
+      console.log("-----------------")
     }
   }
-  console.log(search)
   if(search != queryUrl){
     yumCall(search);
     generateTable();
@@ -118,9 +127,8 @@ $("#dish-btn").on("click", function (event){
   database.ref("/searches").push({
     dish: dishName,
     includedIngredients: ingredientArray,
-    excludedIngredients: excludeArray
+    excludedIngredients: excludeArray,
   });
-    
 });
 
 //initializes image carousel
