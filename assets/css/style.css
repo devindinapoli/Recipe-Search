@@ -108,3 +108,7 @@ body {
     background-color: #f1ceb7;
     box-shadow: none;
 }
+
+input::placeholder {
+    font-style: italic;
+}
