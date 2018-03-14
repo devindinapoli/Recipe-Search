@@ -47,9 +47,9 @@
                 <input placeholder="oregano, tomatoes, basil" id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
                 <label for="ingredient_search">Are there any ingredients you want to exclude from results?</label>
               </div>
-              <div class="input-field col s12" id="course-dropdown">
-                <select>
-                  <option value="" disabled selected>Choose your course</option>
+              <div class="input-field col s12" >
+                <select id="course-dropdown">
+                  <option value="none" disabled selected>Choose your course</option>
                   <option value="american">Breakfast</option>
                   <option value="mexican">Lunch</option>
                   <option value="italian">Dinner</option>
@@ -60,9 +60,9 @@
               <!-- advanced search -->
               <a class="waves-effect waves-light btn" id="advanced-button"><i class="material-icons right">arrow_drop_down</i>Advanced Search</a>
               <div class="advanced-search">
-                <div class="input-field col s12 m6" id="cuisine-dropdown">
-                  <select>
-                    <option value="" disabled selected>Cuisine</option>
+                <div class="input-field col s12 m6">
+                  <select id="cuisine-dropdown">
+                    <option value="none" disabled selected>Cuisine</option>
                     <option value="american">American</option>
                     <option value="mexican">Mexican</option>
                     <option value="italian">Italian</option>
@@ -70,15 +70,15 @@
                   </select>
                 </div>
                 <div class="input-field col s12 m6">
-                  <select>
-                    <option value="" disabled selected>Diet</option>
+                  <select id="diet-dropdown">
+                    <option value="none" disabled selected>Diet</option>
                     <option value="vegetarian">Vegetarian</option>
                     <option value="vegan">Vegan</option>
                   </select>
                 </div>
                 <div class="input-field col s6">
-                    <input placeholder="20" id="time-input" type="number" min="0" max="30" class="validate">
-                    <label for="cooking_time">Cooking Time (Minutes) - Max: 30</label>
+                    <input placeholder="20" id="time-input" type="number" min="1" max="120" class="validate">
+                    <label for="cooking_time">Cooking Time (Minutes) - Max: 120</label>
                   </div>
                   <div class="input-field col s6">
                       <input placeholder="10" id="limit-input" type="number" min="1" max="50"class="validate">

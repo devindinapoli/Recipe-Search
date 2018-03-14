@@ -9,11 +9,9 @@ var config = {
 };
 
 firebase.initializeApp(config);
-var limit = 30;
-//Andrew's API
-var random = Math.floor(Math.random() * 150) + 1;
-var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=" + random + "&requirePictures=true";
+
+var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85" //Andrew's API key
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey  + "&requirePictures=true";
 var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
@@ -41,13 +39,13 @@ var recipeCall = function(){
   console.log("Lists Off Each Recipe As An Object From Second Ajax Request:")
   for(var i= 0; i < recipeArray.length; i++){  
     var newUrl = "https://api.yummly.com/v1/api/recipe/" + recipeArray[i] + "?" + apiKey;
-    $.ajax({
-    url: newUrl,
-    method: "GET"
+      $.ajax({
+      url: newUrl,
+      method: "GET"
     }).then(function(response){
-    console.log(response);
-    cardArray.push(response);
-    generateCards();
+      console.log(response);
+      cardArray.push(response);
+      generateCards();
     })
   }
 }
@@ -64,6 +62,7 @@ var yumCall = function(search){
     }
     console.log("-----------------")
     recipeCall();
+    console.log(queryUrl);
   });
 }
 
@@ -86,10 +85,12 @@ $("#dish-btn").on("click", function (event){
   cardArray = [];
   recipeArray = [];
   event.preventDefault();
-  var search = queryUrl;
+  var limit = 30;
+  var search = "";
   var ingredientArray = [];
   var excludeArray =[];
-  queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=" + random + "&requirePictures=true";
+  var random = Math.floor(Math.random() * limit) + 1;
+
 
   // Default search conditionals
   if($("#search-dish").val() != "") {
@@ -120,38 +121,49 @@ $("#dish-btn").on("click", function (event){
       console.log("-----------------")
     }
   }
-  /*if($("#course-dropdown").val() != "select") {
-    search += "&allowedCourse[]=" + $(this).val();
+
+  if($('select#course-dropdown option:selected').val() != "none") {
+    search += "&allowedCourse[]=" + $('select#course-dropdown option:selected').val();
   }
   // advance search conditionals
-  if($("#cuisine-dropdown").val() != "select") {
-    search += "&allowedCuisine[]=" + $(this).val();
+  if($('select#cuisine-dropdown option:selected').val() != "none") {
+    search += "&allowedCuisine[]=" + $('select#cuisine-dropdown option:selected').val();
   }
-  if($("#diet-dropdown").val() != "select") {
-    search += "&allowedDiet[]=" + $(this).val();
+  if($('select#diet-dropdown option:selected').val() != "none") {
+    search += "&allowedDiet[]=" + $('select#diet-dropdown option:selected').val();
   }
   if($("#limit-input").val() != "") {
-    limit = $("#limit-input").val();
+
+    search += "&maxResult=" + $("#limit-input").val() + "&start=" + random;
+
   }
-  if($("#time-input").val() != "select") {
+
+  if($("#time-input").val() != "") {
     var toSec = $("#time-input").val() * 60;
     search += "&maxTotalTimeInSeconds=" + toSec;
-  }*/
-  console.log(search)
-  if(search != queryUrl){
-    yumCall(search);
+  }
+
+  if(search != "") {
+    yumCall(queryUrl + search);
+    console.log(search)
     generateTable();
+  } else {
+     orgUrl = queryUrl + "&maxResult=" + limit + "&start=" + random;
+     yumCall(orgUrl);
+     generateTable();
+     
   }
   $("#search-dish").val("");
   $("#include-ingredient").val("");
   $("#exclude-ingredient").val("");
   $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+near+me");
   
-  database.ref("/searches").push({
+/*=  database.ref("/searches").push({                        // this should only be pushed if the user has defined these variables, otherwise errors will come
     dish: dishName,
-    includedIngredients: ingredientArray,
+    includedIngredients: ingredientArray,  
     excludedIngredients: excludeArray,
   });
+  */
   //page moves to recipes scrollbox after submit button is clicked
   $('html, body').animate({
     scrollTop: $(".scrollbox").offset().top
