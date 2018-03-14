@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">    
@@ -36,65 +35,61 @@
 
         <!-- search div -->
         <div class="col s12 m7 search">
-        <div class="search-div">
-          <div class="input-field">
-            <input id="search-dish" type="text" class="validate" aria-label="Search for a recipe by the dish name.  Example, chicken parmesan.">
-            <label for="dish_search">Dish Name</label>
+          <div class="search-div">
+            <div class="input-field">
+              <input id="search-dish" type="text" class="validate" aria-label="Search for a recipe by the dish name.  Example, chicken parmesan.">
+              <label for="dish_search">Dish Name</label>
+            </div>
+            <div class="input-field">
+              <input id="include-ingredient" type="text" class="validate" aria-label="Search for a recipe by desired ingredients.">
+              <label for="ingredient_search">Include Ingredients</label>
+            </div>
+            <div class="input-field">
+              <input id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
+              <label for="ingredient_search">Exclude Ingredients</label>
+            </div>
+            <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+            <div class="powered-by">
+              <h6>Powered By</h6> 
+              <a class="logo" target="_blank" href="https://www.yummly.com/"><img class="logo" src="assets/images/yummly_logo.png"></a>
+            </div>
           </div>
-          <div class="input-field">
-            <input id="include-ingredient" type="text" class="validate" aria-label="Search for a recipe by desired ingredients.">
-            <label for="ingredient_search">Include Ingredients</label>
-          </div>
-          <div class="input-field">
-            <input id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
-            <label for="ingredient_search">Exclude Ingredients</label>
-          </div>
-          <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
-          <div class="powered-by">
-            <h6>Powered By</h6> 
-            <a class="logo" target="_blank" href="https://www.yummly.com/"><img class="logo" src="assets/images/yummly_logo.png"></a>
+        </div>
+
+        <!-- google maps div -->
+        <div class="col s12 m5">
+          <div class="maps-div">
+            <div id="map-display">
+              <!-- Google Maps goes here -->
+              <div class="map-responsive">
+                <iframe id = "map"
+                  width="300"
+                  height="300"
+                  frameborder="0" style="border:0"
+                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
+                </iframe>
+              </div>
+            </div>
+          
+            <form>
+              <div class="zip-div">
+                <div class="input-field zip">
+                  <input id="zip-search" type="number"  class="validate" aria-label="Enter a zip code to search for grocery stores">
+                  <label for="zip_code">Zip Code</label>
+                  <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-
-      
-
-      <!-- google maps div -->
-      <div class="col s12 m5">
-        <div class="maps-div">
-          <div id="map-display">
-            <!-- Google Maps goes here -->
-            <div class="map-responsive">
-            <iframe id = "map"
-              width="300"
-              height="300"
-              frameborder="0" style="border:0"
-              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
-            </iframe>
-            </div>
-          </div>
-          
-          <form>
-            <div class="zip-div">
-              <div class="input-field zip">
-                <input id="zip-search" type="number"  class="validate" aria-label="Enter a zip code to search for grocery stores">
-                <label for="zip_code">Zip Code</label>
-                <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div><!-- end google maps div -->
-
-    </div>
 
       <!--Recipe Cards w/ Scrollbox-->
       <div class="row scrollbox">
-    
       </div>
-    </div><!-- end .container -->
+    </div>
     
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>

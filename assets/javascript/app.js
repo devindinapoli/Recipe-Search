@@ -10,7 +10,7 @@ var config = {
 firebase.initializeApp(config);
 
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=60&start=1";
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=1";
 
 var recipeArray= [];
 var cardArray = [];
