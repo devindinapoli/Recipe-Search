@@ -11,10 +11,12 @@ var config = {
 firebase.initializeApp(config);
 //Andrew's API
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=1";
+var startPoint = 0;
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=" + (Math.floor(Math.random() * 150) + 1).toString();
 var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
+
 
 var generateCards = function(){
   for(var i = 0; i < cardArray.length; i++){
@@ -86,6 +88,11 @@ $("#dish-btn").on("click", function (event){
   var search = queryUrl;
   var ingredientArray = [];
   var excludeArray =[];
+  queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=" + (Math.floor(Math.random() * 150) + 1).toString();
+  console.log(queryUrl);
+
+  
+  
 
   if($("#search-dish").val() != "") {
     dishName = $("#search-dish").val().trim();
