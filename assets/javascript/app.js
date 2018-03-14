@@ -9,12 +9,14 @@ var config = {
 };
 
 firebase.initializeApp(config);
+var limit = 10;
 //Andrew's API
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=30&start=1";
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=1";
 var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
+
 
 var generateCards = function(){
   for(var i = 0; i < cardArray.length; i++){
@@ -87,6 +89,7 @@ $("#dish-btn").on("click", function (event){
   var ingredientArray = [];
   var excludeArray =[];
 
+  // Default search conditionals
   if($("#search-dish").val() != "") {
     dishName = $("#search-dish").val().trim();
     dishName = dishName.split(" ").join('+');
@@ -115,6 +118,24 @@ $("#dish-btn").on("click", function (event){
       console.log("-----------------")
     }
   }
+  if($("#course-dropdown").val() != "select") {
+    search += "&allowedCourse[]=" + $(this).val();
+  }
+  // advance search conditionals
+  if($("#cuisine-dropdown").val() != "select") {
+    search += "&allowedCuisine[]=" + $(this).val();
+  }
+  if($("#diet-dropdown").val() != "select") {
+    search += "&allowedDiet[]=" + $(this).val();
+  }
+  if($("#limit-input").val() != "") {
+    limit = $("#limit-input").val();
+  }
+  if($("#time-input").val() != "select") {
+    var toSec = $("#time-input").val() * 60;
+    search += "&maxTotalTimeInSeconds=" + toSec;
+  }
+  console.log(search)
   if(search != queryUrl){
     yumCall(search);
     generateTable();
