@@ -9,10 +9,10 @@ var config = {
 };
 
 firebase.initializeApp(config);
-var limit = 10;
+var limit = 30;
 //Andrew's API
 var apiKey = "_app_id=0fbe7e55&_app_key=6f1a83a5e371300fcbd1a3f859cddf85"
-var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=1";
+var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=" + Math.floor(Math.random() * 150) + 1;;
 var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
@@ -88,6 +88,7 @@ $("#dish-btn").on("click", function (event){
   var search = queryUrl;
   var ingredientArray = [];
   var excludeArray =[];
+  queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey + "&maxResult=" + limit + "&start=" + Math.floor(Math.random() * 150) + 1;
 
   // Default search conditionals
   if($("#search-dish").val() != "") {
@@ -118,7 +119,7 @@ $("#dish-btn").on("click", function (event){
       console.log("-----------------")
     }
   }
-  if($("#course-dropdown").val() != "select") {
+  /*if($("#course-dropdown").val() != "select") {
     search += "&allowedCourse[]=" + $(this).val();
   }
   // advance search conditionals
@@ -134,7 +135,7 @@ $("#dish-btn").on("click", function (event){
   if($("#time-input").val() != "select") {
     var toSec = $("#time-input").val() * 60;
     search += "&maxTotalTimeInSeconds=" + toSec;
-  }
+  }*/
   console.log(search)
   if(search != queryUrl){
     yumCall(search);
