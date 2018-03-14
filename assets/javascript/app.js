@@ -133,6 +133,14 @@ $(document).ready(function(){
   setInterval(function() {
     $('.carousel').carousel('next');
     }, 3000); 
+  //initializes dropdown in general search
+  $('select').material_select();  
+});
+
+$("#advanced-button").click(function() {
+  $(".advanced-search").toggle(function() {
+    $(".advanced-search").show();
+  });
 });
   
 

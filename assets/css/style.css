@@ -84,3 +84,13 @@ body {
     width:100px;
     height:50px;
 }
+
+#course-dropdown {
+    padding: 0;
+}
+
+.advanced-search {
+    padding: 0;
+    margin-bottom: 40px;
+    display: none;
+}
