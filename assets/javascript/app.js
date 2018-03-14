@@ -167,10 +167,9 @@ $(document).ready(function(){
   $('select').material_select();  
 });
 
+//toggles advanced-search section upon click of advanced-search button
 $("#advanced-button").click(function() {
-  $(".advanced-search").toggle(function() {
-    $(".advanced-search").show();
-  });
+  $(".advanced-search").toggle();
 });
   
 
