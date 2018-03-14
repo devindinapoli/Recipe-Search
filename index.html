@@ -60,7 +60,7 @@
               </div>
 
               <!-- advanced search -->
-              <a class="waves-effect waves-light btn" id="advanced-button">Advanced Search</a>
+              <a class="waves-effect waves-light btn" id="advanced-button"><i class="material-icons right">arrow_drop_down</i>Advanced Search</a>
               <div class="advanced-search">
                 <div class="input-field col s12 m6" id="cuisine-dropdown">
                   <select>
@@ -78,24 +78,14 @@
                     <option value="vegan">Vegan</option>
                   </select>
                 </div>
-                <div class="input-field col s12 m6">
-                  <select>
-                    <option value="" disabled selected>Number of Recipes</option>
-                    <option value="american">American</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="italian">Italian</option>
-                    <option value="asian">Asian</option>
-                  </select>
-                </div>
-                <div class="input-field col s12 m6">
-                  <select>
-                    <option value="" disabled selected>Cooking Time</option>
-                    <option value="american">American</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="italian">Italian</option>
-                    <option value="asian">Asian</option>
-                  </select>
-                </div>
+                <div class="input-field col s6">
+                    <input id="time-input" type="number" min="0" max="30" class="validate">
+                    <label for="cooking_time">Cooking Time (min)</label>
+                  </div>
+                  <div class="input-field col s6">
+                      <input id="limit-input" type="number" min="1" max="50"class="validate">
+                      <label for="number_of_recipes">Number of Recipes</label>
+                    </div>
               </div>
               <!-- end advanced search -->
               
