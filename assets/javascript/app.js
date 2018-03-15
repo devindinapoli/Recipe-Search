@@ -89,7 +89,7 @@ $("#dish-btn").on("click", function (event){
   var search = "";
   var ingredientArray = [];
   var excludeArray =[];
-  var random = Math.floor(Math.random() * limit) + 1;
+  var random = Math.floor(Math.random() * 150) + 1;
 
 
   // Default search conditionals
@@ -134,17 +134,18 @@ $("#dish-btn").on("click", function (event){
   }
   if($("#limit-input").val() != "") {
 
-    search += "&maxResult=" + $("#limit-input").val() + "&start=" + random;
+    search += "&maxResult=" + $("#limit-input").val();
 
   }
 
   if($("#time-input").val() != "") {
     var toSec = $("#time-input").val() * 60;
+
     search += "&maxTotalTimeInSeconds=" + toSec;
   }
 
   if(search != "") {
-    yumCall(queryUrl + search);
+    yumCall(queryUrl + search + "&start=" + random);
     console.log(search)
     generateTable();
   } else {
