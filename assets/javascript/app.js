@@ -15,6 +15,7 @@ var queryUrl = "https://api.yummly.com/v1/api/recipes?" + apiKey  + "&requirePic
 var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
+var favArray = [];
 
 /*-----------------------------------------------FUNCTIONAL FUNCTIONS------------------------------------------------------------------ */
 var generateCards = function(array){
@@ -28,7 +29,7 @@ var generateCards = function(array){
       "</div>" +
       "<div class='card-content'>"+ "<br/>" + 
       "<p class=recipe-p>Recipe: </p>" +
-      "<i class='material-icons fav-icon' id=" + array[i].name + ">favorite</i>" +
+      "<i class='material-icons fav-icon' id=" + array[i].id + ">favorite</i>" +
       "<a class='link' target='_blank' href='" + array[i].source.sourceRecipeUrl + "'>" + array[i].source.sourceDisplayName + "</a>" +
       "</div></div>");
 
@@ -87,8 +88,8 @@ $("#zip-button").on("click", function(event){
 })
 
 $("#fav-btn").on("click", function() {
-  generateTable
-})
+  // pul
+});
     
 // The big doozy. this on click handler will check to see what inputs the user has and has not filed
 // this function generates a var 'search' that holds all needed search parameters to be fed to our yumCall()
@@ -208,9 +209,14 @@ $("#advanced-button").click(function() {
 });
 
 /*-----------------------------------------------FIREBASE LOGIC------------------------------------------------------------------ */
-$(document).on("click", "fav-icon", function() {
-  var recipeName = $(this).attr("id");
-  database.ref("/favorites").push({ savedRecipes: recipeName});
-});
-
+$(document).ready(function() {
+  $(document).on("click", ".fav-icon", function() {
+    var recipeName = $(this).attr("id");
+    database.ref("/searches").push({ savedRecipes: recipeName});
+    favArray.push(recipeName);
+    console.log(favArray);
+  });
+  
+  
+})
 
