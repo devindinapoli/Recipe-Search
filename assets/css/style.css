@@ -80,9 +80,9 @@ body {
     max-height: 300px;
 }
 
-.logo{
-    width:100px;
-    height:50px;
+.logo {
+    width: 100px;
+    height: 50px;
 }
 
 .imgheader {
@@ -116,5 +116,8 @@ input::placeholder {
 .fav-icon {
 margin: auto;
 display: inline-block;
-    
 } 
+
+.fav-icon:hover {
+    color: red;
+}
