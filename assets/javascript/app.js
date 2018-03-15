@@ -190,7 +190,10 @@ $("#dish-btn").on("click", function (event){
   $("#exclude-ingredient").val("");
   $("#time-input").val("");
   $("#limit-input").val("");
-
+  $(".diet .select-dropdown").val("Diet");
+  $(".cuisine .select-dropdown").val("Cuisine");
+  $(".course .select-dropdown").val("Choose your course");
+  
   //google maps
   $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+near+me");
 
