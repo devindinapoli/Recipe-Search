@@ -27,10 +27,10 @@ var generateCards = function(array){
       "<img src=" + array[i].images[0].hostedMediumUrl + ">" +
       "<span class='card-title'>" + array[i].name + "</span>" + 
       "</div>" +
-      "<div class='card-content'>"+ "<br/>" + 
+      "<div class='card-content'>" + 
       "<p class=recipe-p>Recipe: </p>" +
-      "<i class='material-icons fav-icon' id=" + array[i].id + ">favorite</i>" +
       "<a class='link' target='_blank' href='" + array[i].source.sourceRecipeUrl + "'>" + array[i].source.sourceDisplayName + "</a>" +
+      "<br><br><i class='material-icons fav-icon' id=" + array[i].id + ">favorite</i>" +
       "</div></div>");
 
     }
@@ -178,10 +178,17 @@ $("#dish-btn").on("click", function (event){
      yumCall(orgUrl);
      generateTable();
   }
+  //clears all input fields upon search click
   $("#search-dish").val("");
   $("#include-ingredient").val("");
   $("#exclude-ingredient").val("");
+  $("#time-input").val("");
+  $("#limit-input").val("");
+  //google maps
   $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+near+me");
+
+  //hides advanced search section upon search click
+  $(".advanced-search").hide();
 
 
 /*-----------------------------------------------Materialize LOGIC------------------------------------------------------------------ */
