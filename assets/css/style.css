@@ -113,11 +113,11 @@ input::placeholder {
     font-style: italic;
 }
 
-.fav-icon {
-margin: auto;
-display: inline-block;
-} 
-
 .fav-icon:hover {
     color: red;
+    cursor: pointer;
+}
+
+.card-title {
+    background-color: #f1ceb7;
 }
