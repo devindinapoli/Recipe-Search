@@ -121,3 +121,7 @@ input::placeholder {
 .card-title {
     background-color: #f1ceb7;
 }
+
+.card .card-image .card-title {
+    padding: 0 24px;
+}
