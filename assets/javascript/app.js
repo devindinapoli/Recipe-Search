@@ -16,6 +16,7 @@ var database = firebase.database();
 var recipeArray= [];
 var cardArray = [];
 var favArray = [];
+var favCardArray = [];
 
 /*-----------------------------------------------FUNCTIONAL FUNCTIONS------------------------------------------------------------------ */
 var generateCards = function(array){
@@ -51,6 +52,7 @@ var recipeCall = function(){
       generateCards(cardArray);
     })
   }
+  console.log(cardArray);
 }
 
 // this ajax function is what searches through yummly's api and brings back results based on parameters given.
@@ -66,7 +68,7 @@ var yumCall = function(search){
       console.log(response.matches[j].id);
     }
     console.log("-----------------")
-    recipeCall();
+    recipeCall(cardArray);
     console.log(queryUrl);
   });
 }
@@ -87,9 +89,6 @@ $("#zip-button").on("click", function(event){
   //Devin's API
 })
 
-$("#fav-btn").on("click", function() {
-  // pul
-});
     
 // The big doozy. this on click handler will check to see what inputs the user has and has not filed
 // this function generates a var 'search' that holds all needed search parameters to be fed to our yumCall()
@@ -160,6 +159,9 @@ $("#dish-btn").on("click", function (event){
   if($("#limit-input").val() != "") {
     search += "&maxResult=" + $("#limit-input").val();
   }
+  else{
+    search += "&maxResult=" + limit;
+  }
 
   // check for max time input and then convert to seconds to work with yummly api
   if($("#time-input").val() != "") {
@@ -212,11 +214,27 @@ $("#advanced-button").click(function() {
 $(document).ready(function() {
   $(document).on("click", ".fav-icon", function() {
     var recipeName = $(this).attr("id");
-    database.ref("/searches").push({ savedRecipes: recipeName});
+    database.ref("/favorites").push({ savedRecipes: recipeName});
     favArray.push(recipeName);
     console.log(favArray);
   });
   
   
 })
+
+$("#fav-btn").on("click", function(event) {
+  event.preventDefault();
+  for(var i= 0; i < favArray.length; i++){  
+    var newUrl = "https://api.yummly.com/v1/api/recipe/" + favArray[i] + "?" + apiKey;
+      $.ajax({
+      url: newUrl,
+      method: "GET"
+    }).then(function(response){
+      favCardArray.push(response);
+      generateCards(favCardArray);
+    })
+  }
+  generateTable();
+  console.log(favCardArray);
+});
 
