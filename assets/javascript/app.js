@@ -110,6 +110,10 @@ $("#dish-btn").on("click", function (event){
 
 // Default search conditionals
   // if user has entered a dish name, execute.
+  if(($("#search-dish").val() === "") && ($("#include-ingredient").val() === "") && ($("#exclude-ingredient").val() === "")) {
+  Materialize.toast('Please Fill Out One of the Fields ', 4000);
+  $("#dish-btn").preventDefault();
+  }
   if($("#search-dish").val() != "") {
     dishName = $("#search-dish").val().trim();
     dishName = dishName.split(" ").join('+');
@@ -208,6 +212,7 @@ $("#dish-btn").on("click", function (event){
     scrollTop: $(".scrollbox").offset().top
   }, 1000);
 
+  
 }); // end of our dish-btn event listener
 
 //initializes image carousel
