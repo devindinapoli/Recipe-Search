@@ -39,6 +39,7 @@ var generateCards = function(array){
     //when user clicks heart icon it turns red
     $(".fav-icon").click(function() {
       $(this).css("color", "red");
+      $("#fav-btn").show();
     });
 }
 
