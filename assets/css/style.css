@@ -112,3 +112,9 @@ body {
 input::placeholder {
     font-style: italic;
 }
+
+.fav-icon {
+margin: auto;
+display: inline-block;
+    
+} 
