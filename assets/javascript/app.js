@@ -35,6 +35,10 @@ var generateCards = function(array){
 
     }
     $(".recipe-box").append(recipeCard);
+    //when user clicks heart icon it turns red
+    $(".fav-icon").click(function() {
+      $(this).css("color", "red");
+    });
 }
 
 // This AJAX function will only be ran after our 1st call. It's purpose is to get specific information about each recipe that came from yumCall
@@ -184,6 +188,7 @@ $("#dish-btn").on("click", function (event){
   $("#exclude-ingredient").val("");
   $("#time-input").val("");
   $("#limit-input").val("");
+
   //google maps
   $("#map").attr("src", "https://www.google.com/maps/embed/v1/search?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=grocery+stores+near+me");
 
@@ -223,7 +228,7 @@ $(document).ready(function() {
     favArray.push(recipeName);
     console.log(favArray);
   });
-  
-  
+
 })
+
 
