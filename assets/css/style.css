@@ -2,7 +2,7 @@
     border-radius: 2px;
     background-color: seashell;
     padding: 40px;
-    padding-bottom: 0;
+    padding-bottom: 20px;
 }
 
 .search {
@@ -124,4 +124,9 @@ input::placeholder {
 
 .card .card-image .card-title {
     padding: 0 24px;
+}
+
+#fav-btn {
+    background-color: #e26403;
+    display: none;
 }
