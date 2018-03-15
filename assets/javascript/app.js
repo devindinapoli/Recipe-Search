@@ -205,6 +205,9 @@ $("#dish-btn").on("click", function (event){
   //hides advanced search section upon search click
   $(".advanced-search").hide();
 
+  //shows message when submit button is clicked
+  Materialize.toast('Check Out the Map for Local Grocery Stores!', 4000);
+
 
 /*-----------------------------------------------Materialize LOGIC------------------------------------------------------------------ */
   //page moves to recipes scrollbox after submit button is clicked
