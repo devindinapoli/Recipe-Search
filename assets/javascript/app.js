@@ -46,7 +46,7 @@ var recipeCall = function(){
       url: newUrl,
       method: "GET"
     }).then(function(response){
-      console.log(response);
+      //console.log(response); // this will show all recipes as objs in console
       cardArray.push(response);
       generateCards(cardArray);
     })
