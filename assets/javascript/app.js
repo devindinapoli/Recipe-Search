@@ -215,7 +215,13 @@ $("#dish-btn").on("click", function (event){
     scrollTop: $(".scrollbox").offset().top
   }, 1000);
 
-  
+  database.ref("/dishSearches").push({
+  dishName: dishName,
+  });
+      
+
+
+
 }); // end of our dish-btn event listener
 
 //initializes image carousel
@@ -238,11 +244,12 @@ $("#advanced-button").click(function() {
 $(document).ready(function() {
   $(document).on("click", ".fav-icon", function() {
     var recipeName = $(this).attr("id");
-    database.ref("/favorites").push({ savedRecipes: recipeName});
+    database.ref("/favorites").push({
+       dishName: dishName,
+      });
     favArray.push(recipeName);
     console.log(favArray);
   });
-
 })
 
 $("#fav-btn").on("click", function(event) {
