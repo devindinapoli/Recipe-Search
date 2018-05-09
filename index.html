@@ -1,143 +1,148 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">    
-    <!-- our custom styles -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>What's For Dinner</title>
-    <!-- firebase link -->
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-  </head>
-  
-  <body>
-    <div class="container center-align">    
-      <div class="row">
-        <div class="col s12">
-          <img class=imgheader src="assets/images/dinnerbanner9.jpg">
-        </div>
-      </div>
 
-      <div class="carousel carousel-slider">
-        <a class="carousel-item" href="#one!"><img src="assets/images/food2.jpg"></a>
-        <a class="carousel-item" href="#two!"><img src="assets/images/food1.jpeg"></a>
-        <a class="carousel-item" href="#three!"><img src="assets/images/food3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img src="assets/images/food4.jpg"></a>
-      </div>
-                  
-      <div class="row">
-        <!-- search div -->
-        <div class="col s12 m7 search">
-          <form action="submit">
-            <div class="search-div">
-              <div class="input-field">
-                <input placeholder="chicken parmesean" id="search-dish" type="text" class="validate" aria-label="Search for a recipe by the dish name.  Example, chicken parmesan.">
-                <label for="dish_search">Dish Name</label>
-              </div>
-              <div class="input-field">
-                <input placeholder="breadcrumbs, cheese, tomatoes" id="include-ingredient" type="text" class="validate" aria-label="Search for a recipe by desired ingredients.">
-                <label for="ingredient_search">Search for dishes with specific ingredients</label>
-              </div>
-              <div class="input-field">
-                <input placeholder="oregano, tomatoes, basil" id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
-                <label for="ingredient_search">Are there any ingredients you want to exclude from results?</label>
-              </div>
-              <div class="course input-field col s12" style="padding: 0;">
-                <select id="course-dropdown">
-                  <option value="none">Choose your course</option>
-                  <option value="breakfast">Breakfast</option>
-                  <option value="lunch">Lunch</option>
-                  <option value="dinner">Dinner</option>
-                  <option value="dessert">Dessert</option>
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- our custom styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <title>What's For Dinner</title>
+  <!-- firebase link -->
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+</head>
+
+<body>
+  <div class="container center-align">
+
+
+    <div class="carousel carousel-slider">
+      <a class="carousel-item" href="#one!">
+        <img src="assets/images/food2.jpg">
+      </a>
+      <a class="carousel-item" href="#two!">
+        <img src="assets/images/food1.jpeg">
+      </a>
+      <a class="carousel-item" href="#three!">
+        <img src="assets/images/food3.jpg">
+      </a>
+      <a class="carousel-item" href="#four!">
+        <img src="assets/images/food4.jpg">
+      </a>
+    </div>
+
+    <div class="row">
+      <!-- search div -->
+      <div class="col s12 m7 search">
+        <form action="submit">
+          <div class="search-div">
+            <div class="input-field">
+              <input placeholder="chicken parmesean" id="search-dish" type="text" class="validate" aria-label="Search for a recipe by the dish name.  Example, chicken parmesan.">
+              <label for="dish_search">Dish Name</label>
+            </div>
+            <div class="input-field">
+              <input placeholder="breadcrumbs, cheese, tomatoes" id="include-ingredient" type="text" class="validate" aria-label="Search for a recipe by desired ingredients.">
+              <label for="ingredient_search">Search for dishes with specific ingredients</label>
+            </div>
+            <div class="input-field">
+              <input placeholder="oregano, tomatoes, basil" id="exclude-ingredient" type="text" class="validate" aria-label="Here, you may exclude ingredients from your search results.">
+              <label for="ingredient_search">Are there any ingredients you want to exclude from results?</label>
+            </div>
+            <div class="course input-field col s12" style="padding: 0;">
+              <select id="course-dropdown">
+                <option value="none">Choose your course</option>
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="dessert">Dessert</option>
+              </select>
+            </div>
+
+            <!-- advanced search -->
+            <a class="waves-effect waves-light btn" id="advanced-button">
+              <i class="material-icons right">arrow_drop_down</i>Advanced Search</a>
+            <div class="advanced-search">
+              <div class="cuisine input-field col s12 m6">
+                <select id="cuisine-dropdown">
+                  <option value="none">Cuisine</option>
+                  <option value="american">American</option>
+                  <option value="mexican">Mexican</option>
+                  <option value="italian">Italian</option>
+                  <option value="asian">Asian</option>
                 </select>
               </div>
+              <div class="diet input-field col s12 m6">
+                <select id="diet-dropdown">
+                  <option value="none">Diet</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="vegan">Vegan</option>
+                </select>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="20" id="time-input" type="number" min="1" max="120" class="validate">
+                <label for="cooking_time">Cooking Time (Minutes) - Max: 120</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="10" id="limit-input" type="number" min="1" max="50" class="validate">
+                <label for="number_of_recipes">Number of Recipes - Max: 50</label>
+              </div>
+            </div>
+            <!-- end advanced search -->
 
-              <!-- advanced search -->
-              <a class="waves-effect waves-light btn" id="advanced-button"><i class="material-icons right">arrow_drop_down</i>Advanced Search</a>
-              <div class="advanced-search">
-                <div class="cuisine input-field col s12 m6">
-                  <select id="cuisine-dropdown">
-                    <option value="none">Cuisine</option>
-                    <option value="american">American</option>
-                    <option value="mexican">Mexican</option>
-                    <option value="italian">Italian</option>
-                    <option value="asian">Asian</option>
-                  </select>
-                </div>
-                <div class="diet input-field col s12 m6">
-                  <select id="diet-dropdown">
-                    <option value="none">Diet</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                  </select>
-                </div>
-                  <div class="input-field col s6">
-                    <input placeholder="20" id="time-input" type="number" min="1" max="120" class="validate">
-                    <label for="cooking_time">Cooking Time (Minutes) - Max: 120</label>
-                  </div>
-                    <div class="input-field col s6">
-                      <input placeholder="10" id="limit-input" type="number" min="1" max="50"class="validate">
-                      <label for="number_of_recipes">Number of Recipes - Max: 50</label>
-                    </div>
+            <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
+            <br>
+            <div class="powered-by">
+              <h6>Powered By</h6>
+              <a class="logo" target="_blank" href="https://www.yummly.com/">
+                <img class="logo" src="assets/images/yummly_logo.png">
+              </a>
+            </div>
+            <button id="fav-btn" class="btn waves-effect waves-light" name="action">Show Favorite Recipes</button>
+            <br>
+          </div>
+        </form>
+      </div>
+
+      <!-- google maps div -->
+      <div class="col s12 m5">
+        <div class="maps-div">
+          <div id="map-display">
+            <!-- Google Maps goes here -->
+            <div class="map-responsive">
+              <iframe id="map" width="300" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
+              </iframe>
+            </div>
+          </div>
+
+          <form>
+            <div class="zip-div">
+              <div class="input-field zip">
+                <input id="zip-search" type="number" class="validate" aria-label="Enter a zip code to search for grocery stores">
+                <label for="zip_code">Zip Code</label>
+                <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
               </div>
-              <!-- end advanced search -->
-              
-              <button id="dish-btn" class="btn waves-effect waves-light" type="submit" name="action">Search</button>
-              <br>
-              <div class="powered-by">
-                <h6>Powered By</h6> 
-                <a class="logo" target="_blank" href="https://www.yummly.com/"><img class="logo" src="assets/images/yummly_logo.png"></a>
-              </div>
-              <button id="fav-btn" class="btn waves-effect waves-light"  name="action">Show Favorite Recipes</button>
-              <br>
             </div>
           </form>
         </div>
-
-        <!-- google maps div -->
-        <div class="col s12 m5">
-          <div class="maps-div">
-            <div id="map-display">
-              <!-- Google Maps goes here -->
-              <div class="map-responsive">
-                <iframe id = "map"
-                  width="300"
-                  height="300"
-                  frameborder="0" style="border:0"
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBG5a2EUHZpq-aoy20slw4V_TpzY2ZqIMc&q=my+location">
-                </iframe>
-              </div>
-            </div>
-          
-            <form>
-              <div class="zip-div">
-                <div class="input-field zip">
-                  <input id="zip-search" type="number"  class="validate" aria-label="Enter a zip code to search for grocery stores">
-                  <label for="zip_code">Zip Code</label>
-                  <button id="zip-button" class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      <!--Recipe Cards w/ Scrollbox-->
-      <div class="row scrollbox">
       </div>
     </div>
-    
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <!-- app.js -->
-    <script src="assets/javascript/app.js"></script>
-  </body>
+
+    <!--Recipe Cards w/ Scrollbox-->
+    <div class="row scrollbox">
+    </div>
+  </div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- app.js -->
+  <script src="assets/javascript/app.js"></script>
+</body>
+
 </html>
