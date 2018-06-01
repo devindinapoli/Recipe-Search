@@ -1,4 +1,4 @@
-# Project1
+# Recipe Search
 
 ### Contributors -  
 -*Devin Dinapoli*
