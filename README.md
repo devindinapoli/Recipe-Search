@@ -24,7 +24,7 @@ Google maps API is used to provide the user with nearby grocery stores where the
 
 ### UI -
 
-Materialize is the the CSS framework.
+Materialize and some vanilla CSS
 
 ### Database -
 
